@@ -46,7 +46,7 @@ include 'header.php';
                       <div class="col-lg-3">
                       <td><label>:</label></td></div>
                       <div class="col-lg-6">
-                      <td><input type="number" class="form-control" name="bobot" id="bobot"required></td></div>
+                      <td><input type="number" step=0.001 class="form-control" name="bobot" id="bobot"required></td></div>
                     </tr>
                     
                     <tr>

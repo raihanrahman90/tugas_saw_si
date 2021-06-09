@@ -160,17 +160,32 @@
                                         $x=1;
                                         foreach($listKriteria as $kodeKriteria=>$kriteria){
                                             echo "<h3 class='card-title'>".$kodeKriteria."</h3>";
+
                                             if($kriteria['tipe']=='Cost'){
-                                                $pembagi = $kriteria['Min'];
+                                                if(isset($kriteria['Min'])){
+                                                    $pembagi = $kriteria['Min'];
+                                                }else{
+                                                    echo "Data alternatif pada kriteria $kodeKriteria Tidak Lengkap";
+                                                    continue;
+                                                }
                                             }else{
-                                                $pembagi = $kriteria['Max'];
+                                                if(isset($kriteria['Max'])){
+                                                    $pembagi = $kriteria['Max'];
+                                                }else{
+                                                    echo "Data alternatif pada kriteria $kodeKriteria Tidak Lengkap";
+                                                    continue;
+                                                };
                                             }
                                             echo "<h3 class='card-title'>Maximal = $pembagi</h3>";
                                             $y=1;
                                             foreach($kriteria['alternatif'] as $id_alternatif=>$alternatif){
                                                 $nilai = $alternatif['nilai'];
                                                 $normalisasi = $alternatif['normalisasi'];
-                                                echo "r$y$x = $pembagi/$nilai = $normalisasi<br/>";
+                                                if($kriteria['tipe']=='Cost'){
+                                                    echo "r$y$x = $pembagi/$nilai = $normalisasi<br/>";
+                                                }else{
+                                                    echo "r$y$x = $nilai/$pembagi = $normalisasi<br/>";
+                                                }
                                                 $y++;
                                             }
                                             $x++;

@@ -55,7 +55,7 @@ if($data = mysqli_fetch_array($sintaxKriteria)){
                                         <div class="col-lg-3">
                                         <td><label>:</label></td></div>
                                         <div class="col-lg-6">
-                                        <td><input type="number" class="form-control" name="nilai" required  value=<?php echo "'$bobot'"?>></td></div>
+                                        <td><input type="number"  step=0.001 class="form-control" name="nilai" required  value=<?php echo "'$bobot'"?>></td></div>
                                         </tr>
                                         
                                         <tr>
